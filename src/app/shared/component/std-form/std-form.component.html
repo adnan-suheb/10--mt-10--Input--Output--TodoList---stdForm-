@@ -1,0 +1,51 @@
+<h3 class="text-white">Student Form</h3>
+
+<div class="card">
+    <div class="card-body">
+        <form #stdForm="ngForm" (ngSubmit)="onStdFormSubmit()">
+            <div class="form-group">
+                <label for="fname">Enter First Name<sup>*</sup></label>
+                <input type="text" name="fname" ngModel #fname="ngModel" required pattern="[a-zA-Z]+"
+                    class="form-control">
+                <span class="text-danger" *ngIf="fname.touched && fname.hasError('required')">First Name
+                    Required!!!</span>
+                <span class="text-danger" *ngIf="fname.dirty && fname.hasError('pattern')">First Name Should Not
+                    Contain numeric and Special Character!!!</span>
+            </div>
+            <div class="form-group">
+                <label for="fname">Enter Last Name<sup>*</sup></label>
+                <input type="text" name="lname" ngModel #lname="ngModel" required pattern="[a-zA-Z]+"
+                    class="form-control">
+                <span class="text-danger" *ngIf="lname.touched && lname.hasError('required')">Last Name
+                    Required!!!</span>
+                <span class="text-danger" *ngIf="lname.dirty && lname.hasError('pattern')">Last Name Should Not
+                    Contain numeric and Special Character!!!</span>
+            </div>
+            <div class="form-group">
+                <label for="fname">Enter Email<sup>*</sup></label>
+                <input type="text" name="email" ngModel #email="ngModel" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control">
+                <span class="text-danger" *ngIf="email.touched && email.hasError('required')">Email
+                    Required!!!</span>
+                <span class="text-danger" *ngIf="email.dirty && email.hasError('pattern')">Invalid Email
+                    Pattern!!!</span>
+            </div>
+            <div class="form-group">
+                <label for="fname">Enter Contact<sup>*</sup></label>
+                <input type="text" name="contact" ngModel #contact="ngModel" required pattern="^\d*$" minlength="10"
+                    maxlength="10" class="form-control">
+                <span class="text-danger" *ngIf="contact.touched && contact.hasError('required')">Contact
+                    Required!!! </span>
+                <ng-container *ngIf="contact.dirty">
+                    <span class="text-danger" *ngIf="contact.hasError('pattern')">Contact
+                        should not contain alphabet and Special Character!!! <br></span>
+                    <span class="text-danger" *ngIf="contact.hasError('minlength')">minimum length of contact should be
+                        {{contact.errors?.['minlength'].requiredLength}}. Current Length is {{contact.errors?.['minlength'].actualLength}}!!!
+                    </span>
+
+                </ng-container>
+            </div>
+            <button class="btn btn-warning">Add Student</button>
+        </form>
+    </div>
+</div>

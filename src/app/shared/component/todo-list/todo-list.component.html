@@ -1,0 +1,11 @@
+<h3 class="text-white">Todo List</h3>
+
+<ul class="list-group" *ngIf="getTodoArray.length>0; else noTodo">
+    <li class="list-group-item" *ngFor="let todo of getTodoArray">
+        {{todo.todoItem}}
+    </li>
+</ul>
+
+<ng-template #noTodo>
+    <p class="alert alert-danger font-weight-bold">No Todo Item Added Yet!!!</p>
+</ng-template>

@@ -1,0 +1,26 @@
+<section class="container mt-4">
+  <div class="todoTask mb-4">
+    <h2 class="text-white text-center bg-warning p-2">Todo List Task Using @Input&@Output</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <app-todo-form (emmitTodo)="onTodoEmmit($event)"></app-todo-form>
+      </div>
+      <div class="col-md-6">
+        <app-todo-list [getTodoArray]="todoArray"></app-todo-list>
+      </div>
+    </div>
+  </div>
+  <hr class="bg-white">
+
+  <div class="stdFormtask">
+    <h2 class="text-white text-center bg-warning p-2">Student Form Task Using @Input&@Output</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4 md-mb-0">
+        <app-std-form (emmitStd)="onStdEmmit($event)"></app-std-form>
+      </div>
+      <div class="col-md-6">
+        <app-std-table [getStdArray]="stdArray"></app-std-table>
+      </div>
+    </div>
+  </div>
+</section>
